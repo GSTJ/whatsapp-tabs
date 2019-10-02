@@ -1,7 +1,9 @@
 {
-  "name": "whatsapp_client",
-  "version": "1.0.0",
-  "private": true,
+  "name": "whatsapp-client-public",
+  "private": false,
+  "description": "Cliente para conexões multiplas no Whatsapp",
+  "version": "0.1.0",
+  "author": "Gabriel Sozza Taveira José <gabrielstaveira@gmail.com>",
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
     "@babel/core": "^7.5.4",
