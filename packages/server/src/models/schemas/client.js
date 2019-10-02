@@ -1,4 +1,7 @@
-const CLIENT = {
+import Mongoose from "mongoose";
+import { client } from "../plugins";
+
+export const schema = {
   number: {
     type: String,
     required: true,
@@ -14,4 +17,9 @@ const CLIENT = {
     default: ""
   }
 };
-export default CLIENT;
+
+const model = Mongoose.model("clients", schema);
+
+model.plugin(client);
+
+export default model;

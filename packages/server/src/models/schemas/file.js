@@ -1,6 +1,7 @@
+import Mongoose from "mongoose";
 import fileType from "file-type";
 
-const FILE = {
+export const schema = {
   base64: {
     type: String,
     validate: str => {
@@ -20,4 +21,6 @@ const FILE = {
   }
 };
 
-export default FILE;
+const model = Mongoose.model("files", schema);
+
+export default model;

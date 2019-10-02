@@ -1,7 +1,9 @@
-import { Schema } from "mongoose";
+import Mongoose, { Schema } from "mongoose";
+import { userMessage } from "../plugins";
 
 const { Types } = Schema;
-const USER_MESSAGE = {
+
+export const schema = {
   from: {
     type: Types.ObjectId,
     required: true,
@@ -34,4 +36,8 @@ const USER_MESSAGE = {
   }
 };
 
-export default USER_MESSAGE;
+const model = Mongoose.model("user_messages", schema);
+
+model.plugin(userMessage);
+
+export default model;
