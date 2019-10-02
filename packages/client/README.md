@@ -15,7 +15,7 @@
 
 3.  **Comece a desenvolver.**
 
-    Navegue ao diretório principal e inicie o Gatsby em modo de desenvolvimento.
+    Navegue ao diretório principal e inicie o cliente em modo de desenvolvimento.
 
     ```sh
     cd whatsapp-client-public/
