@@ -1,7 +1,7 @@
 {
   "name": "whatsapp-server-public",
   "private": false,
-  "description": "Server para conexões multiplas no Whatsapp",
+  "description": "Servidor para conexões multiplas no Whatsapp",
   "version": "0.1.0",
   "author": "Gabriel Sozza Taveira José <gabrielstaveira@gmail.com>",
   "main": "index.js",
