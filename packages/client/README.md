@@ -22,6 +22,8 @@
     yarn start
     ```
 
+_Esse repositório é o frontend do [Whatsapp Server!](https://github.com/GSTJ/whatsapp-server-public)_
+
 ## Quais os motivos para usar um cliente não oficial?
 
 Atualmente o Whatsapp não suporta mais de uma conexão em seu cliente oficial. Isso dificulta a comunicação com clientes em empresas que precisam de mais de um funcionário respondendo as mensagens.
