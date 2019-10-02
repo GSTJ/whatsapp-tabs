@@ -1,9 +1,7 @@
-import Mongoose, { Schema } from "mongoose";
-import { user } from "../plugins";
+import { Schema } from "mongoose";
 
 const { Types } = Schema;
-
-export const schema = {
+const USER = {
   picture: String,
   name: {
     type: String,
@@ -38,9 +36,4 @@ export const schema = {
     default: []
   }
 };
-
-const model = Mongoose.model("users", schema);
-
-model.plugin(user);
-
-export default model;
+export default USER;

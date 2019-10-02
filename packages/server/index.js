@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import app, { server } from "./src/app";
-import { User } from "./src/models";
-import Apollo, { Bind } from "./src/graphql";
+import app, { server } from "./app";
+import { User } from "./models";
+import Apollo, { Bind } from "./graphql";
+// import Connection from "./database";
 
 dotenv.config();
 const { PORT, DEV_PORT, NODE_ENV, MONGO_URL } = process.env;
@@ -24,6 +25,7 @@ db.once("open", async () => {
     await User.updateMany({}, { status: "offline" });
     Bind(app, server);
     await server.listen(port);
+    // await Connection();
     console.log("Everything ready! 🚀");
     console.log(`Apollo: http://localhost:${port + Apollo.graphqlPath}`);
     console.log(
