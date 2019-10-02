@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/static/js/main.e37f33f9.chunk.js",
+    "main.js.map": "/static/js/main.e37f33f9.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.658e1c18.chunk.js": "/static/js/2.658e1c18.chunk.js",
+    "static/js/2.658e1c18.chunk.js.map": "/static/js/2.658e1c18.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.75a0e4a0d199d10f7616d6b85db38614.js": "/precache-manifest.75a0e4a0d199d10f7616d6b85db38614.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/clock.c0f9578b.svg": "/static/media/clock.c0f9578b.svg",
+    "static/media/error.2a20074e.svg": "/static/media/error.2a20074e.svg",
+    "static/media/tick.b89a6916.svg": "/static/media/tick.b89a6916.svg",
+    "static/media/whatsapp-bg.png": "/static/media/whatsapp-bg.8a055527.png",
+    "static/media/whatsapp-logo.80d5f4ab.svg": "/static/media/whatsapp-logo.80d5f4ab.svg"
+  }
+}
