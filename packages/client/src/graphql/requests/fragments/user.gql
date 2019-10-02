@@ -1,0 +1,14 @@
+#import "./userMessage.gql"
+fragment userFrag on User {
+  _id
+  picture
+  name
+  email
+  status
+  lastMessage {
+    ...userMessageFrag
+  }
+  conversations
+  createdAt
+  updatedAt
+}

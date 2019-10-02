@@ -1,0 +1,7 @@
+#import "./userMessage.gql"
+fragment newUserMessageFrag on newUserMessage {
+  userMessage {
+    ...userMessageFrag
+  }
+  target
+}

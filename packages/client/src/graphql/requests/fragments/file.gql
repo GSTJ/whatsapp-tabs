@@ -1,0 +1,7 @@
+fragment fileFrag on File {
+  _id
+  type
+  name
+  createdAt
+  updatedAt
+}

@@ -1,0 +1,6 @@
+#import "../fragments/newUserMessage.gql"
+subscription onNewUserMessage {
+  userMessage {
+    ...newUserMessageFrag
+  }
+}

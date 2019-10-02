@@ -1,0 +1,6 @@
+#import "../fragments/userMessage.gql"
+mutation sendUserMessage($message: sendMessageInput!) {
+  sendUserMessage(message: $message) {
+    ...userMessageFrag
+  }
+}

@@ -1,0 +1,6 @@
+#import "../fragments/file.gql"
+mutation uploadFile($file: uploadFileInput!) {
+  uploadFile(file: $file) {
+    ...fileFrag
+  }
+}

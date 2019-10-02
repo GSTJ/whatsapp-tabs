@@ -1,0 +1,6 @@
+#import "../fragments/profile.gql"
+query getProfile {
+  me {
+    ...profileFrag
+  }
+}

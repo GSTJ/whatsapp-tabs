@@ -1,0 +1,11 @@
+#import "../fragments/userMessage.gql"
+query getUserMessages($userID: String, $cursor: String, $limit: Int) {
+  userMessages(userID: $userID, cursor: $cursor, limit: $limit) {
+    messages {
+      ...userMessageFrag
+    }
+    cursor
+    userID
+    last
+  }
+}

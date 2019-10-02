@@ -1,0 +1,10 @@
+fragment profileFrag on Profile {
+  _id
+  picture
+  name
+  email
+  status
+  conversations
+  createdAt
+  updatedAt
+}

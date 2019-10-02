@@ -1,0 +1,6 @@
+#import "../fragments/client.gql"
+mutation fowardClient($client: String!, $to: String!) {
+  fowardClient(client: $client, to: $to) {
+    ...clientFrag
+  }
+}

@@ -1,0 +1,10 @@
+fragment userMessageFrag on userMessage {
+  _id
+  from
+  to
+  body
+  media
+  contentType
+  createdAt
+  updatedAt
+}

@@ -1,0 +1,6 @@
+#import "./clientMessage.gql"
+fragment newClientMessageFrag on newClientMessage {
+  clientMessage {
+    ...clientMessageFrag
+  }
+}
