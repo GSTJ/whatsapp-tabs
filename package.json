@@ -1,0 +1,19 @@
+{
+  "name": "whatsapp-tabs",
+  "version": "1.0.0",
+  "description": "Para conexões multiplas no Whatsapp",
+  "author": "Gabriel Sozza Taveira José <gabrielstaveira@gmail.com>",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@whatsapp-tabs/eslint-config": "*"
+  }
+}
