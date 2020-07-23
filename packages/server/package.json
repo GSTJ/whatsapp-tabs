@@ -1,0 +1,49 @@
+{
+  "name": "whatsapp-server-public",
+  "private": false,
+  "description": "Servidor para conexões multiplas no Whatsapp",
+  "version": "0.1.0",
+  "author": "Gabriel Sozza Taveira José <gabrielstaveira@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV='production' node -r esm index.js",
+    "dev": "nodemon -r esm index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.5.1",
+    "apollo-server-express": "^2.14.2",
+    "axios": "^0.19.0",
+    "bcrypt": "^3.0.6",
+    "cookie": "^0.4.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.16.4",
+    "express-rate-limit": "^5.0.0",
+    "file-type": "^12.0.1",
+    "google-auth-library": "^4.1.0",
+    "graphql": "^14.3.1",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-tag": "^2.10.1",
+    "is-base64": "^0.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.19",
+    "mongoose": "^5.5.14",
+    "mssql": "^5.1.0",
+    "redux": "^4.0.1",
+    "twilio": "^3.31.0",
+    "validator": "^11.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-import-resolver-typescript": "^1.1.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "nodemon": "^1.19.1",
+    "prettier": "1.18.2"
+  }
+}
