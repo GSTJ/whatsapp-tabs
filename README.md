@@ -6,7 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/GSTJ/Whatsapp-Tabs?color=%23F2C702&style=flat-square)](https://github.com/GSTJ/Whatsapp-Tabs/network/members)
 [![Contributors](https://img.shields.io/github/contributors/GSTJ/Whatsapp-Tabs?color=F2C702&style=flat-square)](https://github.com/GSTJ/Whatsapp-Tabs/graphs/contributors)
 
-> Multiple users on Whatsapp! 🎉
+> 🎉 Multiple users on Whatsapp!
 
 --- ---
 
