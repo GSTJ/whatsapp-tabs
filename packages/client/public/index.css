@@ -8,12 +8,5 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-* {
-  font-family: "Helvetica Neue", "Helvetica Neue LT STD", Helvetica, Arial,
-    "Lucida Grande", sans-serif;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Helvetica Neue', 'Helvetica Neue LT STD', Helvetica, sans-serif;
 }

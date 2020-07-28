@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Flex } from "global_styles";
+import styled from 'styled-components'
+import { Flex } from 'global_styles'
 
 export const Container = styled(Flex)`
   display: flex;
@@ -9,7 +9,7 @@ export const Container = styled(Flex)`
   flex-shrink: 0;
   background-color: white;
   padding: 0 25px;
-`;
+`
 export const Input = styled.input`
   font-size: 15px;
   width: 100%;
@@ -18,8 +18,8 @@ export const Input = styled.input`
   height: 100%;
   padding: 0 20px;
   color: #565656;
-  font-family: "Averta", "Helvetica Neue";
+
   ::placeholder {
     color: #bcbcbc;
   }
-`;
+`

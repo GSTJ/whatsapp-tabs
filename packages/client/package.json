@@ -11,7 +11,6 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "proxy": "http://www.exemplo.com.br",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -28,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "@apollo/client": "^3.1.0",
     "@apollo/react-hooks": "^3.0.1",
     "@babel/core": "^7.5.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",

@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { Flex } from "global_styles";
+import styled, { css } from 'styled-components'
+import { Flex } from 'global_styles'
 
 export const FileDrop = styled.div`
   height: 100%;
@@ -7,7 +7,7 @@ export const FileDrop = styled.div`
   display: flex;
   box-sizing: border-box;
   position: relative;
-`;
+`
 
 export const Overlay = styled(Flex)`
   flex-direction: column;
@@ -22,7 +22,7 @@ export const Overlay = styled(Flex)`
   font-weight: bold;
   font-size: 20px;
   visibility: hidden;
-  font-family: "Averta", "Helvetica Neue";
+
   transition: opacity 100ms linear, visibility 100ms linear;
   ${props =>
     props.visible
@@ -37,4 +37,4 @@ export const Overlay = styled(Flex)`
   .fa-file-upload {
     margin-bottom: 10px;
   }
-`;
+`
