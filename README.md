@@ -88,6 +88,6 @@ If you already found a solution to your problem, **I would love to review your p
 
 # :closed_book: License
 
-The project was released in 2019 and is under the [MIT license](https://github.com/GSTJ/Whatsapp-Tabs/master/LICENSE).
+The project was released in 2018 and is under the [MIT license](https://github.com/GSTJ/Whatsapp-Tabs/master/LICENSE).
 
 Made with 💖 by [**Gabriel Taveira**](https://github.com/GSTJ)  🚀
