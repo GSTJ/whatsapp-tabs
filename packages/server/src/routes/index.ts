@@ -1,5 +1,5 @@
 import sessionsRoutes from './sessions.routes'
-import messageRoutes from './message.routes'
+import messagesRoutes from './messages.routes'
 import statusRoutes from './status.routes'
 import Files from './files'
 import cookieParser from 'cookie-parser'
@@ -9,8 +9,6 @@ import { Server } from 'http'
 import express from 'express'
 import 'express-async-errors'
 
-const { NODE_ENV } = process.env
-
 const app = express()
 
 app.use(cors())
@@ -19,7 +17,7 @@ app.use(express.json({ limit: '300mb' }))
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/sessions', sessionsRoutes)
-app.use('/message', messageRoutes)
+app.use('/messages', messagesRoutes)
 app.use('/status', statusRoutes)
 app.use(Files)
 
