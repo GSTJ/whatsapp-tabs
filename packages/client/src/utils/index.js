@@ -16,8 +16,6 @@ export async function Merge() {
   Get(requests.GET_CLIENTS).then(pickSet('clients', Actions.addClients))
   Get(requests.GET_USERS).then(pickSet('users', Actions.addUsers))
   Get(requests.GET_PROFILE).then(pickSet('me', Actions.setProfile))
-  Get(requests.GET_CLIENT_MESSAGES).then(console.log)
-  Get(requests.GET_USER_MESSAGES).then(console.log)
   Sub(requests.NEW_CLIENT).subscribe(pickSet('client', Actions.addClient))
   Sub(requests.NEW_USER_MESSAGE).subscribe(
     pickSet('userMessage', Actions.addUserMessage)

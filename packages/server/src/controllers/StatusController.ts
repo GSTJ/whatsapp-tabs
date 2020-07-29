@@ -23,7 +23,7 @@ class StatusController {
     }
 
     await message.save()
-    res.send({ message: 'Status recieved.' })
+    res.send('Status recieved.')
   }
 }
 

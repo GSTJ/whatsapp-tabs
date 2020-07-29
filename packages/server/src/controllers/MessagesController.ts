@@ -20,7 +20,7 @@ class MessageController {
       body: Body
     })
 
-    res.send({ message: 'Message recieved.' })
+    res.send('Message recieved.')
   }
 }
 

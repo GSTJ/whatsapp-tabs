@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const Axios = axios.create({
-  baseURL: false //process.env.NODE_ENV === 'production'
+  baseURL: true //process.env.NODE_ENV === 'production'
     ? 'https://whatsapp-tabs.herokuapp.com/'
     : 'http://localhost:8087/'
 })
