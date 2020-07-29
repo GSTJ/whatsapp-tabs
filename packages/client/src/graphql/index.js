@@ -8,7 +8,7 @@ import { setContext } from '@apollo/client/link/context'
 
 const { NODE_ENV } = process.env
 
-const production = true //NODE_ENV === 'production'
+const production = false //NODE_ENV === 'production'
 
 const wsUri = production
   ? 'ws://whatsapp-tabs.herokuapp.com'
@@ -24,7 +24,9 @@ const wsLink = new WebSocketLink({
   uri: `${wsUri}/graphql`,
   options: {
     reconnect: true,
-    authToken: localStorage.getItem('token')
+    connectionParams: {
+      authToken: localStorage.getItem('token')
+    }
   }
 })
 

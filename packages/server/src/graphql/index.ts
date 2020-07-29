@@ -27,6 +27,7 @@ const Apollo = new ApolloServer({
     onConnect: async (params: { authToken: string }, socket) => {
       try {
         const user = await ValidateJWT(params.authToken)
+
         user.status = 'online'
         user.save()
         return user
