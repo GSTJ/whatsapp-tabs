@@ -1,22 +1,19 @@
-import { GraphQLDateTime } from 'graphql-iso-date'
 import { ApolloServer } from 'apollo-server-express'
-import cookie from 'cookie'
 import typeDefs from './typeDefs'
 import { Query, Mutation, Subscription } from './resolvers'
-import { Validate } from '../authentication'
+import ValidateJWT from '../utils/ValidateJWT'
+import { resolvers } from 'graphql-scalars'
 
 const { API_KEY } = process.env
 
 const Apollo = new ApolloServer({
+  ...resolvers,
   typeDefs,
   resolvers: {
     Query,
     Mutation,
     Subscription
   },
-  ISODate: GraphQLDateTime,
-  name: 'Whatsapp-Schema',
-  version: '1.1',
   engine: {
     apiKey: API_KEY
   },
@@ -24,14 +21,12 @@ const Apollo = new ApolloServer({
     if (connection) return connection.context
     const token = (req.headers.authorization || '').replace('Bearer ', '')
 
-    return Validate(token)
+    return ValidateJWT(token)
   },
   subscriptions: {
-    onConnect: async (params, socket) => {
+    onConnect: async (params: { authToken: string }, socket) => {
       try {
-        const { headers } = socket.upgradeReq
-        const token = (headers.authorization || '').replace('Bearer ', '')
-        const user = await Validate(token)
+        const user = await ValidateJWT(params.authToken)
         user.status = 'online'
         user.save()
         return user

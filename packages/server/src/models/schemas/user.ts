@@ -17,22 +17,8 @@ const USER = {
     required: true,
     unique: true
   },
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
   conversations: {
-    type: [
-      {
-        type: Types.ObjectId,
-        ref: 'clients'
-      }
-    ],
+    type: [{ type: Types.ObjectId, ref: 'clients' }],
     default: []
   }
 }

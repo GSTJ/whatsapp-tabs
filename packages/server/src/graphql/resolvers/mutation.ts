@@ -4,10 +4,12 @@ import { Client, File, User, UserMessage, ClientMessage } from '../../models'
 const { ACCOUNT_SID, AUTH_TOKEN, TWILLIO_NUMBER } = process.env
 const twillioClient = twillio(ACCOUNT_SID, AUTH_TOKEN)
 
+import AppError from '../../errors/AppError'
+
 export default {
-  sendClientMessage: async (root, { message }, my) => {
+  async sendClientMessage(_root, { message }, my) {
     const client = await Client.findById(message.to)
-    if (!client) throw new Error('Target not found.')
+    if (!client) throw new AppError('Target not found.')
 
     const { media, contentType, ...rest } = message
 
@@ -26,7 +28,7 @@ export default {
       from: TWILLIO_NUMBER
     })
 
-    if (!messageSid) throw new Error('Something went wrong with Twillio.')
+    if (!messageSid) throw new AppError('Something went wrong with Twillio.')
     // Salva o objeto na DB
     return ClientMessage.create({
       ...rest,
@@ -36,9 +38,9 @@ export default {
       media
     })
   },
-  sendUserMessage: async (root, { message }, my) => {
+  async sendUserMessage(_root, { message }, my) {
     const user = await User.findById(message.to)
-    if (!user) throw new Error('Target not found.')
+    if (!user) throw new AppError('Target not found.')
 
     const { media, contentType, ...rest } = message
     return UserMessage.create({
@@ -48,20 +50,24 @@ export default {
       media
     })
   },
-  uploadFile: async (root, args) => File.create(args.file),
-  createClient: async (root, args) => Client.create(args),
-  unmarkClient: async (root, { client }, my) => {
+  async uploadFile(_root, args) {
+    return File.create(args.file)
+  },
+  async createClient(_root, args) {
+    return Client.create(args)
+  },
+  async unmarkClient(_root, { client }, my) {
     const me = await User.findById(my._id)
 
     const index = me.conversations.indexOf(client._id)
-    if (index !== -1) throw new Error('Client not assigned.')
+    if (index !== -1) throw new AppError('Client not assigned.')
 
     me.conversations.splice(index, 1)
     await me.save()
   },
-  fowardClient: async (root, { client, to }) => {
+  async fowardClient(_root, { client, to }) {
     const target = await User.findById(to)
-    if (target.status !== 'online') throw new Error('User unavailable.')
+    if (target.status !== 'online') throw new AppError('User unavailable.')
 
     const index = target.conversations.indexOf(client._id)
     if (index !== -1) return

@@ -17,7 +17,10 @@ const httpLink = new HttpLink({ uri: `http://${hostname}:${port}/graphql` })
 
 const wsLink = new WebSocketLink({
   uri: `ws://${hostname}:${port}/graphql`,
-  options: { reconnect: true }
+  options: {
+    reconnect: true,
+    authToken: localStorage.getItem('token')
+  }
 })
 
 function separator({ query }) {

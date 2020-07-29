@@ -24,12 +24,7 @@ const USER_MESSAGE = {
     default: 'text/plain'
   },
   conversations: {
-    type: [
-      {
-        type: Types.ObjectId,
-        ref: 'clients'
-      }
-    ],
+    type: [{ type: Types.ObjectId, ref: 'clients' }],
     default: []
   }
 }

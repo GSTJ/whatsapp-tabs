@@ -1,6 +1,6 @@
 import axios from 'axios'
 import fileType from 'file-type'
-import { File } from '../../models'
+import { File } from '../models'
 
 export default async url => {
   const image = await axios.get(url, { responseType: 'arraybuffer' })

@@ -8,6 +8,7 @@ import {
 
 export const pubUser = user => pubSub.publish(NEW_USER, { user })
 export const pubClient = client => pubSub.publish(NEW_CLIENT, { client })
+
 export const pubUserMessage = userMessage =>
   pubSub.publish(NEW_USER_MESSAGE, { userMessage: { userMessage } })
 export const pubClientMessage = clientMessage =>

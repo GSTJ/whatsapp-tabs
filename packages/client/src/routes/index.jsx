@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { SnackbarProvider } from 'notistack'
 import { ApolloClient, Store, Merge } from 'utils'
 import Login from './login'
-import Register from './register'
 import App from './app'
 
 function Routes() {
@@ -18,7 +17,6 @@ function Routes() {
           <BrowserRouter>
             <Switch>
               {token && (Merge(), (<App />))}
-              <Route path="/register" component={Register} />
               <Route path="/" component={Login} />
             </Switch>
           </BrowserRouter>

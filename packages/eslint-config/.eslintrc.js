@@ -4,9 +4,10 @@ module.exports = {
     node: true,
     jest: true
   },
+
   extends: [
-    'plugin:react/recommended',
     'standard',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
     'prettier/standard',
@@ -22,7 +23,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'space-before-function-paren': 'never'
   },
   settings: {
     'import/resolver': {
