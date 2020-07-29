@@ -1,3 +1,5 @@
+import express from 'express'
+import 'express-async-errors'
 import sessionsRoutes from './sessions.routes'
 import messagesRoutes from './messages.routes'
 import statusRoutes from './status.routes'
@@ -6,8 +8,6 @@ import cookieParser from 'cookie-parser'
 import AppError from '../errors/AppError'
 import cors from 'cors'
 import { Server } from 'http'
-import express from 'express'
-import 'express-async-errors'
 
 const app = express()
 

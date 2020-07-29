@@ -8,7 +8,7 @@ import { setContext } from '@apollo/client/link/context'
 
 const { NODE_ENV } = process.env
 
-const production = NODE_ENV === 'production'
+const production = true //NODE_ENV === 'production'
 
 const wsUri = production
   ? 'ws://whatsapp-tabs.herokuapp.com'

@@ -10,6 +10,8 @@ class AuthenticateUserService {
   public async execute({ tokenId }: { tokenId: string }) {
     if (!tokenId) throw new AppError("Property 'tokenId' was not provided")
 
+    console.log(tokenId)
+
     const googleUser = await GoogleClient.verifyIdToken({
       idToken: tokenId,
       audience: GOOGLE_ID
