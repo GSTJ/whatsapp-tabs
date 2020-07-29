@@ -46,9 +46,4 @@ const Apollo = new ApolloServer({
   }
 })
 
-export const Bind = async (app, server) => {
-  Apollo.applyMiddleware({ app })
-  Apollo.installSubscriptionHandlers(server)
-}
-
 export default Apollo

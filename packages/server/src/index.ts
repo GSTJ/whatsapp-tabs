@@ -1,10 +1,7 @@
 import mongoose from 'mongoose'
-import dotenv from 'dotenv'
 import app, { server } from './routes'
 import { User } from './models'
-import Apollo, { Bind } from './graphql'
-
-dotenv.config()
+import Apollo from './graphql'
 
 const { PORT, MONGO_URL } = process.env
 
@@ -12,8 +9,11 @@ async function HandleOpen() {
   try {
     // Logout all users.
     await User.updateMany({}, { status: 'offline' })
-    Bind(app, server)
-    await server.listen(PORT)
+
+    Apollo.applyMiddleware({ app })
+    Apollo.installSubscriptionHandlers(server)
+
+    server.listen(PORT)
 
     console.log(`
 Everything ready! 🚀

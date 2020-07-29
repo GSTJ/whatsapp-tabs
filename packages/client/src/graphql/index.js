@@ -10,13 +10,18 @@ const { NODE_ENV } = process.env
 
 const production = NODE_ENV === 'production'
 
-const port = production ? 80 : 8087
-const hostname = production ? 'myurl.com' : 'localhost'
+const wsUri = production
+  ? 'ws://whatsapp-tabs.herokuapp.com'
+  : 'ws://localhost:8087'
 
-const httpLink = new HttpLink({ uri: `http://${hostname}:${port}/graphql` })
+const httpUri = production
+  ? 'https://whatsapp-tabs.herokuapp.com'
+  : 'http://localhost'
+
+const httpLink = new HttpLink({ uri: `${httpUri}/graphql` })
 
 const wsLink = new WebSocketLink({
-  uri: `ws://${hostname}:${port}/graphql`,
+  uri: `${wsUri}/graphql`,
   options: {
     reconnect: true,
     authToken: localStorage.getItem('token')

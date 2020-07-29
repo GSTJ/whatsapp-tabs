@@ -1,7 +1,10 @@
 import axios from 'axios'
 
 const Axios = axios.create({
-  baseURL: 'http://localhost:8087/'
+  baseURL:
+    process.env.NODE_ENV === 'production'
+      ? 'https://whatsapp-tabs.herokuapp.com/'
+      : 'http://localhost:8087/'
 })
 
 export async function Authenticate(props) {
