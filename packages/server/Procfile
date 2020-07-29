@@ -1,1 +1,1 @@
-server: yarn workspace @whatsapp-tabs/server start
+web: yarn workspace @whatsapp-tabs/server start
