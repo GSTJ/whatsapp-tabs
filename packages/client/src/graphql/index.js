@@ -16,7 +16,7 @@ const wsUri = production
 
 const httpUri = production
   ? 'https://whatsapp-tabs.herokuapp.com'
-  : 'http://localhost'
+  : 'http://localhost:8087'
 
 const httpLink = new HttpLink({ uri: `${httpUri}/graphql` })
 
