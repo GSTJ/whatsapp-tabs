@@ -3,6 +3,7 @@ import typeDefs from './typeDefs'
 import { Query, Mutation, Subscription } from './resolvers'
 import validateJWT from '../utils/validateJWT'
 import { resolvers } from 'graphql-scalars'
+import { AuthenticationError } from 'apollo-server'
 
 const { API_KEY } = process.env
 
@@ -15,7 +16,15 @@ const Apollo = new ApolloServer({
     Subscription
   },
   engine: {
-    apiKey: API_KEY
+    apiKey: API_KEY,
+    rewriteError(err) {
+      // Return `null` to avoid reporting `AuthenticationError`s
+      if (err instanceof AuthenticationError) {
+        return null
+      }
+      // All other errors will be reported.
+      return err
+    }
   },
   context: async ({ req, connection }) => {
     if (connection) return connection.context
