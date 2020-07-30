@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useSnackbar } from 'notistack'
-import { useMutation } from '@apollo/react-hooks'
+import { useMutation } from '@apollo/client'
 import {
   SEND_USER_MESSAGE,
   SEND_CLIENT_MESSAGE,

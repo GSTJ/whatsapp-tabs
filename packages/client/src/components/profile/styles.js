@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { OverflowText } from 'global_styles'
+import Avatar from 'react-avatar'
 
 export const Profile = styled.div`
   margin: 0;
@@ -20,13 +21,9 @@ export const Email = styled(OverflowText)`
   color: #afafaf;
   font-size: 13px;
 `
-export const User = styled.div`
-    background: #f5f5f5 url('${props => props.src}') top left / cover no-repeat;
+export const User = styled(Avatar).attrs({ round: true, size: 50 })`
     position: relative;
-    height: 50px;
-    width: 50px;
     flex-shrink: 0;
-    border-radius: 50%;
     :after{
       content: "";
       display: block;
@@ -35,7 +32,7 @@ export const User = styled.div`
       height: 10px;
       border: 2px white solid;
       position: relative;
-      top: 35px;
+      top: -15px;
       left: 35px;
       margin-bottom: -15px;
       background-color: ${props => {

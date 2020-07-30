@@ -2,7 +2,7 @@ import { Schema } from 'mongoose'
 
 const { Types } = Schema
 const USER = {
-  picture: String,
+  googleId: Number,
   name: {
     type: String,
     required: true

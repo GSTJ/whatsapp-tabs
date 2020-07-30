@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { useLazyQuery } from '@apollo/react-hooks'
+import { useLazyQuery } from '@apollo/client'
 import { GET_CLIENT_MESSAGES, GET_USER_MESSAGES } from 'graphql/requests'
 import { Actions } from 'ducks'
 import { useSelector, useDispatch } from 'react-redux'

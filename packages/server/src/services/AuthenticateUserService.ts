@@ -15,22 +15,18 @@ class AuthenticateUserService {
       audience: GOOGLE_ID
     })
 
-    const { name, email, picture } = googleUser.getPayload()
+    const { name, email } = googleUser.getPayload()
 
     const user = await User.findOne({ email })
 
     if (user) {
       // Updating information from Google.
-      Object.assign(user, { name, picture: await getImage(picture) })
+      user.name = name
       await user.save()
       return user
     }
 
-    return User.create({
-      name,
-      email,
-      picture: await getImage(picture)
-    })
+    return User.create({ name, email, googleId: googleUser.getUserId() })
   }
 }
 

@@ -24,25 +24,16 @@ const Apollo = new ApolloServer({
     return ValidateJWT(token)
   },
   subscriptions: {
-    onConnect: async (params: { authToken: string }, socket) => {
-      try {
-        const user = await ValidateJWT(params.authToken)
-
-        user.status = 'online'
-        user.save()
-        return user
-      } catch (error) {
-        return false
-      }
+    onConnect: async (params: { authToken: string }) => {
+      const user = await ValidateJWT(params.authToken)
+      user.status = 'online'
+      user.save()
+      return user
     },
     onDisconnect: async (socket, context) => {
-      try {
-        const user = await context.initPromise
-        user.status = 'offline'
-        return user.save()
-      } catch (error) {
-        return false
-      }
+      const user = await context.initPromise
+      user.status = 'offline'
+      return user.save()
     }
   }
 })

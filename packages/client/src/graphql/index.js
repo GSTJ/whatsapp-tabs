@@ -1,9 +1,7 @@
-import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { WebSocketLink } from 'apollo-link-ws'
-import { split } from 'apollo-link'
-import { getMainDefinition } from 'apollo-utilities'
+import { ApolloClient, split, HttpLink } from '@apollo/client'
+import { InMemoryCache } from '@apollo/client/cache'
+import { WebSocketLink } from '@apollo/client/link/ws'
+import { getMainDefinition } from '@apollo/client/utilities'
 import { setContext } from '@apollo/client/link/context'
 
 const { NODE_ENV } = process.env
