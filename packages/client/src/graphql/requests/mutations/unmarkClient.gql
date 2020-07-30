@@ -1,6 +1,0 @@
-#import "../fragments/client.gql"
-mutation unmarkClient($client: String!) {
-  unmarkClient(client: $client) {
-    ...clientFrag
-  }
-}

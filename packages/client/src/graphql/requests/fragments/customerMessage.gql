@@ -1,0 +1,11 @@
+fragment customerMessageFrag on customerMessage {
+  _id
+  from
+  to
+  body
+  media
+  status
+  contentType
+  createdAt
+  updatedAt
+}

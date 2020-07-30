@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { SnackbarProvider } from 'notistack'
 import { ApolloClient, Store, Merge } from 'utils'
-import Login from './login'
-import App from './app'
+import Login from './Login'
+import App from './App'
 
 function Routes() {
   const token = localStorage.getItem('token')

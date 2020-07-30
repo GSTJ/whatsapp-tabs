@@ -1,0 +1,6 @@
+#import "../fragments/customerMessage.gql"
+mutation sendCustomerMessage($message: sendMessageInput!) {
+  sendCustomerMessage(message: $message) {
+    ...customerMessageFrag
+  }
+}

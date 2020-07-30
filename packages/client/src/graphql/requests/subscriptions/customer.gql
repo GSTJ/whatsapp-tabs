@@ -1,0 +1,6 @@
+#import "../fragments/customer.gql"
+subscription onNewClient {
+  customer {
+    ...customerFrag
+  }
+}

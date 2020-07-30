@@ -1,0 +1,11 @@
+#import "../fragments/customerMessage.gql"
+query getCustomerMessages($clientID: String, $cursor: String, $limit: Int) {
+  CustomerMessages(clientID: $clientID, cursor: $cursor, limit: $limit) {
+    messages {
+      ...customerMessageFrag
+    }
+    cursor
+    clientID
+    last
+  }
+}

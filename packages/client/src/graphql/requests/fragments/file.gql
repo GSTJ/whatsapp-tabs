@@ -1,4 +1,4 @@
-fragment fileFrag on File {
+fragment fileFrag on file {
   _id
   type
   name

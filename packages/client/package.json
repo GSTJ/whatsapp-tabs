@@ -44,7 +44,6 @@
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
-    "auth0-js": "^9.13.4",
     "axios": "^0.19.0",
     "cookie": "^0.4.0",
     "dotenv": "^8.1.0",

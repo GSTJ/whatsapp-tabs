@@ -1,4 +1,4 @@
-fragment profileFrag on Profile {
+fragment profileFrag on profile {
   _id
   picture
   name

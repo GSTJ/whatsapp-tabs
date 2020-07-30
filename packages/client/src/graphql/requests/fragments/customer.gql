@@ -1,0 +1,11 @@
+#import "./customerMessage.gql"
+fragment customerFrag on customer {
+  _id
+  number
+  name
+  lastMessage {
+    ...customerMessageFrag
+  }
+  createdAt
+  updatedAt
+}

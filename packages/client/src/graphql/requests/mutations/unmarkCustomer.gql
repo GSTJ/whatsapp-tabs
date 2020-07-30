@@ -1,0 +1,6 @@
+#import "../fragments/customer.gql"
+mutation unmarkCustomer($customer: String!) {
+  unmarkCustomer(customer: $customer) {
+    ...customerFrag
+  }
+}
