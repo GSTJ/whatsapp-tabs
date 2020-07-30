@@ -1,4 +1,4 @@
-import { ClientMessage, Client } from '../models'
+import { CustomerMessage, Customer } from '../models'
 import { Request, Response } from 'express'
 
 class MessageController {
@@ -7,12 +7,13 @@ class MessageController {
 
     const number = From.replace('whatsapp:', '')
 
-    const client =
-      (await Client.findOne({ number })) || (await Client.create({ number }))
+    const customer =
+      (await Customer.findOne({ number })) ||
+      (await Customer.create({ number }))
 
-    const from = client._id
+    const from = customer._id
 
-    ClientMessage.create({
+    CustomerMessage.create({
       messageSid: MessageSid,
       from,
       media: MediaUrl0,

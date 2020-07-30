@@ -1,16 +1,16 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  type clientMessages {
-    messages: [clientMessage]
+  type customerMessages {
+    messages: [customerMessage]
     cursor: String
     clientID: String
     last: Boolean
   }
-  type newClientMessage {
-    clientMessage: clientMessage
+  type newCustomerMessage {
+    customerMessage: customerMessage
   }
-  type clientMessage {
+  type customerMessage {
     _id: String
     from: String
     to: String
@@ -22,7 +22,7 @@ export default gql`
     createdAt: ISODate
     updatedAt: ISODate
   }
-  input clientMessageInput {
+  input customerMessageInput {
     _id: String
     from: String
     to: String

@@ -1,49 +1,53 @@
 import gql from 'graphql-tag'
 import Message from './message'
 import UserMessage from './userMessage'
-import ClientMessage from './clientMessage'
+import CustomerMessage from './customerMessage'
 import File from './file'
-import Client from './client'
+import Customer from './customer'
 import User from './user'
 import Profile from './profile'
 
 export default gql`
   scalar ISODate
 
-  ${ClientMessage}
+  ${CustomerMessage}
   ${UserMessage}
   ${Message}
   ${Profile}
-  ${Client}
+  ${Customer}
   ${File}
   ${User}
 
   type Query {
-    me: Profile
-    user(user: userInput): User
-    users: [User]
+    me: profile
+    user(user: userInput): user
+    users: [user]
     userMessage(message: userMessageInput): userMessage
     userMessages(userID: String, cursor: String, limit: Int): userMessages
-    client(client: clientInput): Client
-    clients: [Client]
-    clientMessage(message: clientMessageInput): clientMessage
-    clientMessages(clientID: String, cursor: String, limit: Int): clientMessages
+    customer(customer: clientInput): customer
+    customers: [customer]
+    customerMessage(message: customerMessageInput): customerMessage
+    customerMessages(
+      clientID: String
+      cursor: String
+      limit: Int
+    ): customerMessages
   }
 
   type Mutation {
     sendUserMessage(message: sendMessageInput!): userMessage
-    sendClientMessage(message: sendMessageInput!): clientMessage
-    fowardClient(client: String!, to: String!): Client
-    unmarkClient(client: String!): Client
-    createClient(client: createClientInput!): Client
-    uploadFile(file: uploadFileInput!): File
+    sendCustomerMessage(message: sendMessageInput!): customerMessage
+    fowardCustomer(customer: String!, to: String!): customer
+    unmarkCustomer(customer: String!): customer
+    createCustomer(customer: createClientInput!): customer
+    uploadFile(file: uploadFileInput!): file
   }
 
   type Subscription {
-    profile: User
-    client: Client
-    clientMessage: newClientMessage
-    user: User
+    profile: user
+    customer: customer
+    customerMessage: newCustomerMessage
+    user: user
     userMessage: newUserMessage
   }
 `

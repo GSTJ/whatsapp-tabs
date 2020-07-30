@@ -3,8 +3,8 @@ import { PubSub, withFilter } from 'apollo-server'
 export const pubSub = new PubSub()
 
 export const NEW_USER_MESSAGE = 'NEW_USER_MESSAGE'
-export const NEW_CLIENT_MESSAGE = 'NEW_CLIENT_MESSAGE'
-export const NEW_CLIENT = 'NEW_CLIENT'
+export const NEW_CUSTOMER_MESSAGE = 'NEW_CUSTOMER_MESSAGE'
+export const NEW_CUSTOMER = 'NEW_CUSTOMER'
 export const NEW_USER = 'NEW_USER'
 
 export default {
@@ -28,10 +28,10 @@ export default {
       }
     )
   },
-  client: {
-    subscribe: () => pubSub.asyncIterator([NEW_CLIENT])
+  customer: {
+    subscribe: () => pubSub.asyncIterator([NEW_CUSTOMER])
   },
-  clientMessage: {
-    subscribe: () => pubSub.asyncIterator([NEW_CLIENT_MESSAGE])
+  customerMessage: {
+    subscribe: () => pubSub.asyncIterator([NEW_CUSTOMER_MESSAGE])
   }
 }

@@ -1,41 +1,41 @@
-import { User, Client, ClientMessage, UserMessage } from '../../models'
+import { User, Customer, CustomerMessage, UserMessage } from '../../models'
 import AppError from '../../errors/AppError'
 
 export default {
   me(_root, _args, me) {
     return me
   },
-  async client(_root, args) {
-    const client = await Client.findOne(args.client).exec()
-    if (!client) throw new AppError('Client does not exist.')
-    return client
+  async customer(_root, args) {
+    const customer = await Customer.findOne(args.customer).exec()
+    if (!customer) throw new AppError('Customer does not exist.')
+    return customer
   },
-  async clients(_root, args) {
-    const clients = await Client.find(args)
+  async customers(_root, args) {
+    const customers = await Customer.find(args)
       .lean()
       .exec()
 
-    // Adding lastMessage to each client.
-    const modified = clients.map(async client => {
-      client.lastMessage = await ClientMessage.findOne({
-        $or: [{ from: client._id }, { to: client._id }]
+    // Adding lastMessage to each customer.
+    const modified = customers.map(async customer => {
+      customer.lastMessage = await CustomerMessage.findOne({
+        $or: [{ from: customer._id }, { to: customer._id }]
       })
         .sort('-createdAt')
         .exec()
 
-      return client
+      return customer
     })
 
     return Promise.all(modified)
   },
-  async clientMessage(_root, args) {
-    const message = await ClientMessage.findById(args.message._id).exec()
+  async customerMessage(_root, args) {
+    const message = await CustomerMessage.findById(args.message._id).exec()
     if (!message) throw new AppError('Message does not exist.')
     return message
   },
-  async clientMessages(_root, { cursor, clientID, limit = 30 }) {
+  async customerMessages(_root, { cursor, clientID, limit = 30 }) {
     // Surpassing the limit to foresee the end.
-    const messages = await ClientMessage.find({
+    const messages = await CustomerMessage.find({
       ...(clientID && { $or: [{ from: clientID }, { to: clientID }] }),
       ...(cursor && { createdAt: { $lt: cursor } })
     })

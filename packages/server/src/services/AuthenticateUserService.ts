@@ -1,5 +1,4 @@
 import { OAuth2Client } from 'google-auth-library'
-import getImage from '../utils/getImage'
 import { User } from '../models'
 import AppError from '../errors/AppError'
 

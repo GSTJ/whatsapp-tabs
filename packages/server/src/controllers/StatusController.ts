@@ -1,11 +1,11 @@
-import { ClientMessage } from '../models'
+import { CustomerMessage } from '../models'
 import { Request, Response } from 'express'
 
 class StatusController {
   async create(req: Request, res: Response) {
     const { MessageStatus, MessageSid } = req.body
 
-    const message = await ClientMessage.findOne({ messageSid: MessageSid })
+    const message = await CustomerMessage.findOne({ messageSid: MessageSid })
 
     // Concurrency issue workaround
     switch (MessageStatus) {
@@ -17,8 +17,6 @@ class StatusController {
         break
       case 'sent':
         if (message.status === 'sending') message.status = MessageStatus
-        break
-      default:
         break
     }
 

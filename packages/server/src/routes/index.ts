@@ -3,12 +3,11 @@ import 'express-async-errors'
 import sessionsRoutes from './sessions.routes'
 import messagesRoutes from './messages.routes'
 import statusRoutes from './status.routes'
-import Files from './files'
+import Files from './files.routes'
 import cookieParser from 'cookie-parser'
-import AppError from '../errors/AppError'
+import ErrorMiddleware from '../errors/ErrorMiddleware'
 import cors from 'cors'
 import { Server } from 'http'
-
 const app = express()
 
 app.use(cors())
@@ -21,19 +20,7 @@ app.use('/messages', messagesRoutes)
 app.use('/status', statusRoutes)
 app.use(Files)
 
-app.use((err, _req, res, _next) => {
-  if (err instanceof AppError) {
-    return res.status(err.statusCode).json({
-      status: 'error',
-      message: err.message
-    })
-  }
-
-  return res.status(500).json({
-    status: 'error',
-    message: 'Internal Server Error'
-  })
-})
+app.use(ErrorMiddleware)
 
 export const server = new Server(app)
 

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  type Profile {
+  type profile {
     _id: String
     picture: String
     name: String

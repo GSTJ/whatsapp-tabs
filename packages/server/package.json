@@ -10,12 +10,13 @@
     "dev": "nodemon -r ts-node -r dotenv/config  src/index.ts",
     "start-dev": "node -r dotenv/config dist/index.js",
     "start": "node dist/index.js",
-    "build": "tsc",
-    "postinstall": "yarn run build"
+    "build": "tsc"
   },
   "dependencies": {
+    "@types/mongoose": "^5.7.34",
     "apollo-server": "^2.5.1",
     "apollo-server-express": "^2.14.2",
+    "aws-sdk": "^2.724.0",
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "cookie": "^0.4.0",
@@ -30,11 +31,14 @@
     "graphql-iso-date": "^3.6.1",
     "graphql-scalars": "^1.2.2",
     "graphql-tag": "^2.10.1",
+    "http-status": "^1.4.2",
     "is-base64": "^0.1.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.19",
     "mongoose": "^5.5.14",
     "mssql": "^5.1.0",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "redux": "^4.0.1",
     "twilio": "^3.31.0",
     "validator": "^11.0.0"

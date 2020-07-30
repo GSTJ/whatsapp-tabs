@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server-express'
 import typeDefs from './typeDefs'
 import { Query, Mutation, Subscription } from './resolvers'
-import ValidateJWT from '../utils/ValidateJWT'
+import validateJWT from '../utils/validateJWT'
 import { resolvers } from 'graphql-scalars'
 
 const { API_KEY } = process.env
@@ -21,11 +21,11 @@ const Apollo = new ApolloServer({
     if (connection) return connection.context
     const token = (req.headers.authorization || '').replace('Bearer ', '')
 
-    return ValidateJWT(token)
+    return validateJWT(token)
   },
   subscriptions: {
     onConnect: async (params: { authToken: string }) => {
-      const user = await ValidateJWT(params.authToken)
+      const user = await validateJWT(params.authToken)
       user.status = 'online'
       user.save()
       return user

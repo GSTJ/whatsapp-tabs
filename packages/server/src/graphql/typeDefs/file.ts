@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  type File {
+  type file {
     _id: String
     base64: String
     type: String

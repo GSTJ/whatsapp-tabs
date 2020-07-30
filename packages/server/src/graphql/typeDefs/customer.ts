@@ -1,11 +1,11 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  type Client {
+  type customer {
     _id: String
     number: String
     name: String
-    lastMessage: clientMessage
+    lastMessage: customerMessage
     createdAt: ISODate
     updatedAt: ISODate
   }
@@ -13,7 +13,7 @@ export default gql`
     _id: String
     number: String
     name: String
-    lastMessage: clientMessageInput
+    lastMessage: customerMessageInput
     createdAt: ISODate
     updatedAt: ISODate
   }
