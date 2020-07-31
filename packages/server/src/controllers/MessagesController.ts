@@ -11,11 +11,9 @@ class MessageController {
       (await Customer.findOne({ number })) ||
       (await Customer.create({ number }))
 
-    const from = customer._id
-
     CustomerMessage.create({
       messageSid: MessageSid,
-      from,
+      from: customer._id,
       media: MediaUrl0,
       contentType: MediaContentType0,
       body: Body

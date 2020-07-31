@@ -4,11 +4,12 @@ import { Profile, User, Username, Email } from './styles'
 
 export default props => {
   const { googleId, email, name, status, ...rest } = props
+  console.log(googleId, 909)
   return (
     <Profile {...rest}>
-      <User status={status} googleId={googleId} />
+      <User status={status} name={name} alt="user" />
       <Separator width="10" />
-      <div style={{ display: 'grid' }}>
+      <div>
         <Username>{name}</Username>
         <Email>{email}</Email>
       </div>

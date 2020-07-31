@@ -6,16 +6,16 @@ export default gql`
     number: String
     name: String
     lastMessage: customerMessage
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
   input clientInput {
     _id: String
     number: String
     name: String
     lastMessage: customerMessageInput
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
   input createClientInput {
     number: String!

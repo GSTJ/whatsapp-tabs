@@ -1,7 +1,7 @@
 #import "./userMessage.gql"
 fragment userFrag on user {
   _id
-  picture
+  googleId
   name
   email
   status

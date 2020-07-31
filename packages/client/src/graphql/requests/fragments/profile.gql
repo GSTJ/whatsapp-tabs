@@ -5,6 +5,7 @@ fragment profileFrag on profile {
   email
   status
   conversations
+  googleId
   createdAt
   updatedAt
 }

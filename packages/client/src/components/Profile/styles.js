@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import { OverflowText } from 'global_styles'
-import Avatar from 'react-avatar'
+
+import Avatar, { createAvatarComponent, GoogleSource } from 'react-avatar'
+
+// const Avatar = createAvatarComponent({
+//   sources: [GoogleSource]
+// })
 
 export const Profile = styled.div`
   margin: 0;
@@ -24,6 +29,7 @@ export const Email = styled(OverflowText)`
 export const User = styled(Avatar).attrs({ round: true, size: 50 })`
     position: relative;
     flex-shrink: 0;
+    font-weight: 600;
     :after{
       content: "";
       display: block;

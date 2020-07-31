@@ -6,8 +6,8 @@ export default gql`
     base64: String
     type: String
     name: String
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
   input uploadFileInput {
     base64: String

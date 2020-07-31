@@ -7,8 +7,9 @@ export default gql`
     name: String
     email: String
     status: String
+    googleId: BigInt
     conversations: [String]
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
 `

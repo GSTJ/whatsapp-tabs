@@ -9,10 +9,7 @@ export default (err, _req: Request, res: Response, _next: Function) => {
       message: err.message || status[err.statusCode]
     })
   }
-
-  // Debugging
-  return res.json({ err })
-
+  console.log(err)
   return res.status(status.INTERNAL_SERVER_ERROR).json({
     status: 'error',
     message: status[status.INTERNAL_SERVER_ERROR]

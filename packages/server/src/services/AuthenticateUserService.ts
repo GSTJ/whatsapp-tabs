@@ -25,6 +25,8 @@ class AuthenticateUserService {
       return user
     }
 
+    console.log({ name, email, googleId: googleUser.getUserId() })
+
     return User.create({ name, email, googleId: googleUser.getUserId() })
   }
 }

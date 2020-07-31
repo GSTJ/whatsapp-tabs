@@ -19,8 +19,8 @@ export default gql`
     media: String
     status: String
     contentType: String
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
   input userMessageInput {
     _id: String
@@ -29,7 +29,7 @@ export default gql`
     body: String
     media: String
     contentType: String
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
 `

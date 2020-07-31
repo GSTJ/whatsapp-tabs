@@ -3,29 +3,29 @@ import gql from 'graphql-tag'
 export default gql`
   type user {
     _id: String
-    picture: String
+    googleId: BigInt
     name: String
     email: String
     status: String
     lastMessage: userMessage
     conversations: [String]
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
   input userInput {
     _id: String
-    picture: String
+    googleId: BigInt
     name: String
     email: String
     status: String
     lastMessage: userMessageInput
     conversations: [String]
-    createdAt: ISODate
-    updatedAt: ISODate
+    createdAt: Date
+    updatedAt: Date
   }
   input createUserInput {
     email: String!
-    picture: String
+    googleId: BigInt!
     name: String
   }
 `
