@@ -19,7 +19,7 @@
     "apollo-server-express": "^2.14.2",
     "aws-sdk": "^2.724.0",
     "axios": "^0.19.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "cookie": "^0.4.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
