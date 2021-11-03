@@ -42,7 +42,7 @@
     "multer-s3": "^2.9.0",
     "redux": "^4.0.1",
     "twilio": "^3.31.0",
-    "validator": "^11.0.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
