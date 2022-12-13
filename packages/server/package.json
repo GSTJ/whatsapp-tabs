@@ -23,7 +23,7 @@
     "cookie": "^0.4.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
     "express-rate-limit": "^5.0.0",
     "file-type": "^12.0.1",
