@@ -34,7 +34,7 @@
     "graphql-tag": "^2.10.1",
     "http-status": "^1.4.2",
     "is-base64": "^0.1.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.19",
     "mongoose": "^5.5.14",
     "mssql": "^5.1.0",
