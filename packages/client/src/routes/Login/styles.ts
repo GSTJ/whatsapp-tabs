@@ -1,10 +1,20 @@
+
 import styled from "styled-components";
 import { Flex, FullScreenFlex } from "global_styles";
 
-export const Login = styled(FullScreenFlex)`
+export interface LoginProps {
+  children: React.ReactNode;
+}
+
+export const Login = styled(FullScreenFlex)<LoginProps>`
   flex-direction: column;
 `;
-export const InnerContaner = styled(Flex)`
+
+export interface InnerContainerProps {
+  children: React.ReactNode;
+}
+
+export const InnerContainer = styled(Flex)<InnerContainerProps>`
   margin-top: 30px;
   flex-direction: column;
   max-width: 500px;
@@ -28,12 +38,17 @@ export const InnerContaner = styled(Flex)`
   section:last-of-type {
     margin-bottom: 20px;
   }
-  .MuiButtonBase-root{
+  .MuiButtonBase-root {
     height: 43px;
     width: 100%;
   }
-`;
-export const Header = styled(Flex)`
+};
+
+export interface HeaderProps {
+  children: React.ReactNode;
+}
+
+export const Header = styled(Flex)<HeaderProps>`
   width: 100%;
   justify-content: center;
   border-bottom: 1px solid #f6f7f9;

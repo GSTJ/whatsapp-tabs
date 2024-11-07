@@ -1,7 +1,11 @@
 import styled from 'styled-components'
-import { Flex, OverflowText } from 'global_styles'
+import { Flex } from './global_styles'
 
-export const Navbar = styled(Flex)`
+export interface NavbarProps {
+  height?: number
+}
+
+export const Navbar = styled(Flex)<NavbarProps>`
   background-color: white;
   height: ${props => `${props.height}px` || 'auto'};
 
@@ -10,7 +14,8 @@ export const Navbar = styled(Flex)`
   padding: 0 25px;
   z-index: 5;
 `
-export const Username = styled(OverflowText)`
+
+export const Username = styled.div`
   flex-grow: 1;
   text-align: center;
   margin: auto;

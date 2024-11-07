@@ -1,8 +1,16 @@
-import styled, { css } from 'styled-components'
-import { Profile as profile } from 'components'
+import styled, { css, StyledComponent } from 'styled-components'
 import { Overflow, Flex, RoundButton } from 'global_styles'
 
-export const Profile = styled(profile)`
+export type ProfileProps = {
+  status: string
+}
+
+export const Profile: StyledComponent<
+  'div',
+  any,
+  ProfileProps,
+  never
+> = styled.div<ProfileProps>`
   transition: 300ms;
   border-radius: 5px;
   padding: 15px 20px;
@@ -21,7 +29,10 @@ export const Profile = styled(profile)`
       }
     `}
 `
-export const Header = styled(Flex)`
+
+export const Header: StyledComponent<typeof Flex, any, {}, never> = styled(
+  Flex
+)`
   background-image: linear-gradient(to right, #0bc0a1, #40dc9f);
   z-index: 20;
   height: 20%;
@@ -30,7 +41,8 @@ export const Header = styled(Flex)`
     max-height: 200px;
   }
 `
-export const Foward = styled.div`
+
+export const Foward: StyledComponent<'div', any, {}, never> = styled.div`
   width: 70vw;
   height: 90vh;
   background-color: #e6e6e6;
@@ -45,14 +57,27 @@ export const Foward = styled.div`
     border-radius: 0;
   }
 `
-export const Container = styled(Overflow)`
+
+export const Container: StyledComponent<
+  typeof Overflow,
+  any,
+  {},
+  never
+> = styled(Overflow)`
   height: 100%;
   padding: 10px;
 `
-export const Close = styled(RoundButton)`
+
+export const Close: StyledComponent<
+  typeof RoundButton,
+  any,
+  {},
+  never
+> = styled(RoundButton)`
   margin: 25px 25px auto auto;
 `
-export const Title = styled.p`
+
+export const Title: StyledComponent<'p', any, {}, never> = styled.p`
   font-size: 17px;
   font-weight: bold;
   margin: 0 40px;

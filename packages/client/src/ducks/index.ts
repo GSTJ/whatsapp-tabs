@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers, Reducer } from 'redux'
 import {
   Reducers as internalReducers,
   Creators as internalCreators
@@ -9,14 +9,20 @@ import {
 } from './customers'
 import { Reducers as userReducers, Creators as userCreators } from './users'
 
-export const Actions = {
-  ...internalCreators,
-  ...clientCreators,
-  ...userCreators
+export type Actions = typeof internalCreators &
+  typeof clientCreators &
+  typeof userCreators
+
+interface RootState {
+  users: Reducer<any, any>
+  internal: Reducer<any, any>
+  customers: Reducer<any, any>
 }
 
-export default combineReducers({
+const rootReducer: Reducer<RootState> = combineReducers({
   users: userReducers,
   internal: internalReducers,
   customers: clientReducers
 })
+
+export default rootReducer

@@ -1,15 +1,33 @@
 import { createActions, createReducer } from 'reduxsauce'
 
-const INITIAL_STATE = new Map()
+type Customer = {
+  _id: string
+  messages: Map<string, any>
+  firstLoad: boolean
+}
+
+type Message = {
+  _id: string
+  to: string
+  from: string
+}
+
+type State = Map<string, Customer>
+
+const INITIAL_STATE: State = new Map()
 
 // Sort by date
-const Sort = (current, next) =>
+const Sort = (current: any, next: any): number =>
   new Date(next.createdAt).getTime() - new Date(current.createdAt).getTime()
-function MapOrderByDate() {
+
+function MapOrderByDate(this: Map<string, any>): any[] {
   return [...this.values()].sort(Sort)
 }
 
-const addCustomers = (state = INITIAL_STATE, action) => {
+const addCustomers = (
+  state: State = INITIAL_STATE,
+  action: { customers: Customer[] }
+): State => {
   const { customers } = action
   const Copy = new Map(state)
   customers.forEach(customer => {
@@ -20,7 +38,10 @@ const addCustomers = (state = INITIAL_STATE, action) => {
   return Copy
 }
 
-const addCustomer = (state = INITIAL_STATE, action) => {
+const addCustomer = (
+  state: State = INITIAL_STATE,
+  action: { customer: Customer }
+): State => {
   const { customer } = action
   const Copy = new Map(state)
 
@@ -35,7 +56,17 @@ const addCustomer = (state = INITIAL_STATE, action) => {
   return Copy
 }
 
-const addCustomerMessages = (state = INITIAL_STATE, action) => {
+const addCustomerMessages = (
+  state: State = INITIAL_STATE,
+  action: {
+    message: {
+      messages: Message[]
+      cursor: string
+      last: boolean
+      clientID: string
+    }
+  }
+): State => {
   const { messages, cursor, last, clientID } = action.message
 
   const Copy = new Map(state)
@@ -50,7 +81,10 @@ const addCustomerMessages = (state = INITIAL_STATE, action) => {
   return Copy
 }
 
-const addCustomerMessage = (state = INITIAL_STATE, action) => {
+const addCustomerMessage = (
+  state: State = INITIAL_STATE,
+  action: { message: { customerMessage: Message } }
+): State => {
   const { customerMessage } = action.message
 
   const Copy = new Map(state)

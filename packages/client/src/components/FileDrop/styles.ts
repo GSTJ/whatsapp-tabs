@@ -1,5 +1,9 @@
-import styled, { css } from 'styled-components'
-import { Flex } from 'global_styles'
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
+import { Flex } from './global_styles'
+
+export interface OverlayProps {
+  visible: boolean
+}
 
 export const FileDrop = styled.div`
   height: 100%;
@@ -9,7 +13,7 @@ export const FileDrop = styled.div`
   position: relative;
 `
 
-export const Overlay = styled(Flex)`
+export const Overlay = styled(Flex)<OverlayProps>`
   flex-direction: column;
   background-color: rgba(0, 116, 161, 0.5);
   color: white;
@@ -24,7 +28,7 @@ export const Overlay = styled(Flex)`
   visibility: hidden;
 
   transition: opacity 100ms linear, visibility 100ms linear;
-  ${props =>
+  ${(props: OverlayProps): FlattenSimpleInterpolation =>
     props.visible
       ? css`
           visibility: visible;
@@ -33,8 +37,10 @@ export const Overlay = styled(Flex)`
       : css`
           visibility: hidden;
           opacity: 0;
-        `}
+        `};
   .fa-file-upload {
     margin-bottom: 10px;
   }
 `
+
+export { Flex }

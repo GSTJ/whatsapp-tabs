@@ -1,6 +1,21 @@
+;
 import { createActions, createReducer } from "reduxsauce";
 
-const INITIAL_STATE = {
+interface Profile {
+  // define profile properties here
+}
+
+interface State {
+  profile: Profile;
+  foward: boolean;
+  selected: any;
+  toggle: boolean;
+  lock: boolean;
+  search: string;
+  send: string;
+}
+
+const INITIAL_STATE: State = {
   profile: {},
   foward: false,
   selected: null,
@@ -10,7 +25,7 @@ const INITIAL_STATE = {
   send: ""
 };
 
-const setProperty = (state, action) => ({
+const setProperty = (state: State, action: any) => ({
   ...state,
   ...action
 });
@@ -25,7 +40,7 @@ export const { Types, Creators } = createActions({
   setLock: ["lock"]
 });
 
-export const Reducers = createReducer(INITIAL_STATE, {
+export const Reducers = createReducer<State, any>(INITIAL_STATE, {
   [Types.SET_PROFILE]: setProperty,
   [Types.SET_SELECTED]: setProperty,
   [Types.SET_TOGGLE]: setProperty,
@@ -34,3 +49,6 @@ export const Reducers = createReducer(INITIAL_STATE, {
   [Types.SET_SEND]: setProperty,
   [Types.SET_LOCK]: setProperty
 });
+
+export type { Profile, State };
+

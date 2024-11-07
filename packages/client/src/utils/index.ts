@@ -1,16 +1,22 @@
 import Reducers, { Actions } from 'ducks'
-import { createStore } from 'redux'
+import { createStore, Store as ReduxStore } from 'redux'
 import * as requests from 'graphql/requests'
 import Client from '../graphql'
 
-const ReduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__
+const ReduxExtension = (window as any).__REDUX_DEVTOOLS_EXTENSION__
 export const ApolloClient = Client
-export const Store = createStore(Reducers, ReduxExtension && ReduxExtension())
+export const Store: ReduxStore = createStore(
+  Reducers,
+  ReduxExtension && ReduxExtension()
+)
 
-const pickSet = (Pick, Creator) => ({ data }) =>
-  Store.dispatch(Creator(data[Pick]))
-const Get = query => ApolloClient.query({ query })
-const Sub = query => ApolloClient.subscribe({ query })
+const pickSet = (Pick: string, Creator: Function) => ({
+  data
+}: {
+  data: any
+}) => Store.dispatch(Creator(data[Pick]))
+const Get = (query: any) => ApolloClient.query({ query })
+const Sub = (query: any) => ApolloClient.subscribe({ query })
 
 export async function Merge() {
   Get(requests.GET_CUSTOMERS).then(pickSet('customers', Actions.addCustomers))

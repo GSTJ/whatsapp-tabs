@@ -1,24 +1,23 @@
-import { ApolloClient, split, HttpLink } from '@apollo/client'
-import { InMemoryCache } from '@apollo/client/cache'
-import { WebSocketLink } from '@apollo/client/link/ws'
+
+import { ApolloClient, HttpLink, InMemoryCache, split, WebSocketLink } from '@apollo/client'
 import { getMainDefinition } from '@apollo/client/utilities'
 import { setContext } from '@apollo/client/link/context'
 
 const { NODE_ENV } = process.env
 
-const production = true //NODE_ENV === 'production'
+const production: boolean = true //NODE_ENV === 'production'
 
-const wsUri = production
+const wsUri: string = production
   ? 'ws://whatsapp-tabs.herokuapp.com'
   : 'ws://localhost:8087'
 
-const httpUri = production
+const httpUri: string = production
   ? 'https://whatsapp-tabs.herokuapp.com'
   : 'http://localhost:8087'
 
-const httpLink = new HttpLink({ uri: `${httpUri}/graphql` })
+const httpLink: HttpLink = new HttpLink({ uri: `${httpUri}/graphql` })
 
-const wsLink = new WebSocketLink({
+const wsLink: WebSocketLink = new WebSocketLink({
   uri: `${wsUri}/graphql`,
   options: {
     reconnect: true,
@@ -28,7 +27,7 @@ const wsLink = new WebSocketLink({
   }
 })
 
-function separator({ query }) {
+function separator({ query }: { query: any }): boolean {
   const definition = getMainDefinition(query)
   return (
     definition.kind === 'OperationDefinition' &&
@@ -36,7 +35,7 @@ function separator({ query }) {
   )
 }
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext((_, { headers }: { headers: any }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('token')
   // return the headers to the context so httpLink can read them
@@ -50,7 +49,8 @@ const authLink = setContext((_, { headers }) => {
 
 const link = authLink.concat(split(separator, wsLink, httpLink))
 
-const cache = new InMemoryCache()
-const client = new ApolloClient({ cache, link })
+const cache: InMemoryCache = new InMemoryCache()
+const client: ApolloClient<InMemoryCache> = new ApolloClient({ cache, link })
 
-export default client
+export type { ApolloClient, HttpLink, InMemoryCache, WebSocketLink }
+export { client }

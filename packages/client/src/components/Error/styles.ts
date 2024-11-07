@@ -1,11 +1,10 @@
-
-import styled from 'styled-components';
-import { Flex } from './global_styles';
+import styled from 'styled-components'
+import { Flex } from './global_styles'
 
 const Types = {
   error: '#dc6464',
   alert: '#fbad4c'
-};
+}
 
 export const Error = styled(Flex)<{ type: keyof typeof Types }>`
   transition: 0.4s;
@@ -13,8 +12,8 @@ export const Error = styled(Flex)<{ type: keyof typeof Types }>`
   border-radius: 5px;
   background-color: ${props => Types[props.type]};
   color: white;
-`;
+`
 
 export type ErrorProps = {
-  type: keyof typeof Types;
-};
+  type: keyof typeof Types
+}

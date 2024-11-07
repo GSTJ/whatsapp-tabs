@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
-export const Alert = styled.div`
-  padding: 2px 30px;
+export interface AlertProps {
+  children: React.ReactNode
+}
 
+export const Alert = styled.div<AlertProps>`
+  padding: 2px 30px;
   border-radius: 50px;
   background-color: #c3dff1;
   color: #2d2d2d;
