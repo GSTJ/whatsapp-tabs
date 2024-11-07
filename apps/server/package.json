@@ -6,6 +6,16 @@
   "author": "Gabriel Sozza Taveira José <gabrielstaveira@gmail.com>",
   "main": "src/index.js",
   "license": "MIT",
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@whatsapp-tabs/eslint-config/nextjs"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
+  },
+  "prettier": "@whatsapp-tabs/prettier-config",
   "scripts": {
     "dev": "nodemon -r ts-node -r dotenv/config  src/index.ts",
     "start-dev": "node -r dotenv/config dist/index.js",
@@ -45,6 +55,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
+        "@whatsapp-tabs/prettier-config": "workspace:*",
     "@types/express-rate-limit": "^5.0.0",
     "@types/graphql-iso-date": "^3.4.0",
     "@types/jsonwebtoken": "^8.5.0",

@@ -12,8 +12,15 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
+  "prettier": "@whatsapp-tabs/prettier-config",
   "eslintConfig": {
-    "extends": "react-app"
+    "root": true,
+    "extends": [
+      "@whatsapp-tabs/eslint-config/nextjs"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
   },
   "browserslist": {
     "production": [
@@ -39,6 +46,7 @@
     "@material-ui/core": "^4.1.1",
     "@material-ui/icons": "^4.2.1",
     "@storybook/addon-actions": "^5.1.9",
+    "typescript": "*",
     "@storybook/addon-backgrounds": "^5.1.9",
     "@storybook/addon-knobs": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
@@ -78,6 +86,7 @@
     "subscriptions-transport-ws": "^0.9.16"
   },
   "devDependencies": {
+    "@whatsapp-tabs/prettier-config": "workspace:*",
     "babel-plugin-macros": "^2.6.1"
   }
 }

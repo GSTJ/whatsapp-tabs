@@ -1,20 +1,54 @@
-node_modules
-dist
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
+# OSX
+#
 .DS_Store
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# node.js
+#
+node_modules/
+npm-debug.log
+pnpm-error.log
+.pnpm-debug.log*
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+
+
+# Expo
+.expo/*
+expo-env.d.ts
+web-build/
+
+**/*/.expo
+
+**/*/.next
+
+**/*/ios
+**/*/android
+
+.turbo
+build/**
+
+.pnp.*
+.pnpm/*
+!.pnpm/patches
+!.pnpm/plugins
+!.pnpm/releases
+!.pnpm/sdks
+!.pnpm/versions
+
+.env
+.envrc
+
+.env.dev
+.env.prod
+
+dist/
+build/
+
+# Metro
+.metro*
+
+# Turbo cache
+*.tsbuildinfo
