@@ -4,21 +4,16 @@
   "description": "Para conexões multiplas no Whatsapp",
   "author": "Gabriel Sozza Taveira José <gabrielstaveira@gmail.com>",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/typescript",
-      "**/typescript/**"
-    ]
-  },
   "scripts": {
     "lint": "eslint . --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
+  "packageManager": "pnpm@9.6.0",
   "devDependencies": {
-    "@whatsapp-tabs/eslint-config": "*"
+    "@whatsapp-tabs/eslint-config": "workspace:*",
+    "prettier": "3.3.3",
+    "turbo": "^2.2.3",
+    "typescript": "^5.6.3"
   }
 }

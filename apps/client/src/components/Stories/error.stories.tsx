@@ -1,0 +1,20 @@
+
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { text, select } from "@storybook/addon-knobs";
+import Error from "../Error";
+
+const options: { [key: string]: string } = {
+  Aviso: "alert",
+  Erro: "error"
+};
+
+export const ErrorDefault = (): JSX.Element => (
+  <Error type={select("Tipo", options, "alert")}>
+    {text("Mensagem", "Nenhuma conversa em andamento")}
+  </Error>
+);
+
+storiesOf("Errors", module).add("default", ErrorDefault);
+
+export type { ErrorProps } from "../Error";
